@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>COVID-19 Tracker</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f2f5f7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px;
+    }
+
+    h1 {
+      margin-top: 10px;
+      font-size: 2.6rem;
+      font-weight: bold;
+      color: #333;
+      text-align: center;
+    }
+
+    .search-box {
+      margin-top: 25px;
+      display: flex;
+      gap: 12px;
+      padding: 12px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    input {
+      padding: 12px 14px;
+      width: 220px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      outline: none;
+      font-size: 16px;
+    }
+
+    input::placeholder {
+      color: #777;
+    }
+
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #007bff;
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #005fcc;
+    }
+
+    .card {
+      margin-top: 35px;
+      width: 330px;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+      animation: fadeIn 0.4s ease-in;
+    }
+
+    .card h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #005fcc;
+    }
+
+    .card p {
+      font-size: 17px;
+      margin: 10px 0;
+      color: #333;
+    }
+
+    .error {
+      margin-top: 15px;
+      color: red;
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 480px) {
+
+      .search-box {
+        flex-direction: column;
+        width: 90%;
+      }
+
+      input,
+      button {
+        width: 100%;
+      }
+
+      .card {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>COVID-19 Tracker</h1>
+
+  <div class="search-box">
+    <input type="text" id="countryInput" placeholder="Enter country name..." />
+    <button onclick="getCovidData()">Search</button>
+  </div>
+
+  <div class="error" id="error"></div>
+  <div id="result"></div>
+
+  <script>
+    function getCovidData() {
+      const country = document.getElementById("countryInput").value.trim();
+      const result = document.getElementById("result");
+      const error = document.getElementById("error");
+
+      result.innerHTML = "";
+      error.textContent = "";
+
+      if (!country) {
+        error.textContent = "Please enter a country name.";
+        return;
+      }
+
+      const url = `https://disease.sh/v3/covid-19/countries/${country}`;
+
+      fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.message) {
+            error.textContent = "Country not found!";
+            return;
+          }
+
+          const card = document.createElement("div");
+          card.className = "card";
+
+          card.innerHTML = `
+            <h2>${data.country}</h2>
+            <p><strong>Total Cases:</strong> ${data.cases.toLocaleString()}</p>
+            <p><strong>Active Cases:</strong> ${data.active.toLocaleString()}</p>
+            <p><strong>Deaths:</strong> ${data.deaths.toLocaleString()}</p>
+            <p><strong>Recovered:</strong> ${data.recovered.toLocaleString()}</p>
+            <p><strong>Last Updated:</strong> ${new Date(data.updated).toLocaleString()}</p>
+          `;
+
+          result.appendChild(card);
+        })
+        .catch(() => {
+          error.textContent = "Something went wrong.";
+        });
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather API</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #eef2f3;
+      min-height: 100vh;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+      font-size: 2.2rem;
+    }
+
+    .search-box {
+      display: flex;
+      background: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      gap: 10px;
+    }
+
+    input {
+      padding: 12px;
+      width: 230px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    button {
+      padding: 12px 18px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #005fcc;
+    }
+
+    .card {
+      margin-top: 30px;
+      width: 320px;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      text-align: center;
+    }
+
+    .card img {
+      width: 80px;
+      margin-bottom: 10px;
+    }
+
+    .card h2 {
+      color: #222;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      margin: 6px 0;
+      font-size: 16px;
+      color: #444;
+    }
+
+    .error {
+      color: red;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 450px) {
+      .search-box {
+        flex-direction: column;
+      }
+
+      input,
+      button {
+        width: 100%;
+      }
+
+      .card {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Weather App</h1>
+
+  <div class="search-box">
+    <input type="text" id="cityInput" placeholder="Enter city name..." />
+    <button onclick="getWeather()">Search</button>
+  </div>
+
+  <div id="weatherResult"></div>
+  <div class="error" id="error"></div>
+
+  <script>
+    function getWeather() {
+      const city = document.getElementById("cityInput").value.trim();
+      const apiKey = "dc989810ec5879216998f7685d8d2057";
+      const resultBox = document.getElementById("weatherResult");
+      const error = document.getElementById("error");
+
+      resultBox.innerHTML = "";
+      error.textContent = "";
+
+      if (!city) {
+        error.textContent = "Please enter a city name";
+        return;
+      }
+
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+
+      fetch(url)
+        .then(res => res.json())
+        .then(data => {
+          if (data.cod !== 200) {
+            error.textContent = "City not found";
+            return;
+          }
+
+          const card = document.createElement("div");
+          card.className = "card";
+
+          card.innerHTML = `
+            <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png">
+            <h2>${data.name}, ${data.sys.country}</h2>
+            <p>${data.weather[0].description.toUpperCase()}</p>
+            <p><strong>Temperature:</strong> ${Math.round(data.main.temp)}°C</p>
+            <p><strong>Feels Like:</strong> ${Math.round(data.main.feels_like)}°C</p>
+            <p><strong>Humidity:</strong> ${data.main.humidity}%</p>
+            <p><strong>Wind:</strong> ${data.wind.speed} km/h</p>
+          `;
+
+          resultBox.appendChild(card);
+        })
+        .catch(() => {
+          error.textContent = "Something went wrong. Try again.";
+        });
+    }
+  </script>
+
+</body>
+
+</html>
