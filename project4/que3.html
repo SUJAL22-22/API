@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pelidrome number</title>
+</head>
+
+<body>
+    <script>
+        var n = Number(prompt("Enter a number"));
+        var rev = 0;
+        var temp = n;
+
+        while (n > 0) {
+            var i = n % 10;
+            rev = rev * 10 + i;
+            n = Math.floor(n / 10);
+        }
+        document.write(rev);
+        if(temp==rev)
+        {
+            document.write("<br>pelidrone")
+        }
+        else
+        {
+            document.write("<br>not pelidrone")
+        }
+    </script>
+</body>
+
+</html>

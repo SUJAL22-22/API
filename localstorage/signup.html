@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>document</title>
+</head>
+
+<body>
+    <form id="form">
+        <input type="text" id="name" placeholder="Enter Name"><br><br>
+        <input type="email" id="email" placeholder="Enter Email"><br><br>
+        <input type="password" id="password" placeholder="Enter Password"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+<script>
+    var arr = JSON.parse(localStorage.getItem("info")) || [];
+
+    document.querySelector("form").addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        var name = document.getElementById("name").value.trim();
+        var email = document.getElementById("email").value.trim();
+        var password = document.getElementById("password").value.trim();
+
+        var obj = { name, email, password };
+
+        arr.push(obj);
+ 
+        localStorage.setItem("info", JSON.stringify(arr));
+        window.location.reload();
+
+    });
+
+    arr.map((el, i) => {
+        var div = document.createElement("div");
+
+        var name = document.createElement("h3");
+        name.innerHTML = el.name;
+
+        var email = document.createElement("h4");
+        email.innerHTML = el.email;
+
+        var password = document.createElement("h5");
+        password.innerHTML = el.password;
+
+        var delBtn = document.createElement("button");
+        delBtn.innerHTML = "Delete";
+
+        delBtn.addEventListener("click", function () {
+            deleteItem(i);
+        });
+
+        var updBtn = document.createElement("button");
+        updBtn.innerHTML = "Update";
+        updBtn.style.marginLeft = "10px";
+        updBtn.addEventListener("click", function () {
+            updateItem(i);
+        });
+
+        div.append(name, email, password, delBtn, updBtn);
+
+        document.querySelector("body").append(div);
+
+    });
+
+    function deleteItem(i) {
+        arr.splice(i, 1);
+        localStorage.setItem("info", JSON.stringify(arr));
+        window.location.reload();
+    }
+
+    function updateItem(i) {
+        var newName = prompt("Enter new name:", arr[i].name);
+        var newEmail = prompt("Enter new email:", arr[i].email);
+        var newPassword = prompt("Enter new password:", arr[i].password);
+
+        arr[i].name = newName;
+        arr[i].email = newEmail;
+        arr[i].password = newPassword;
+        localStorage.setItem("info", JSON.stringify(arr));
+    }
+</script>
+
+</html>

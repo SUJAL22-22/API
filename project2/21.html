@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>que21</title>
+</head>
+
+<body>
+    <script>
+        var unit = Number(prompt("Enter the number of units consumed: "));
+        var bill;
+
+        if (unit <= 50) 
+        {
+            bill = unit * 0.50;
+        } 
+        else if (unit <= 150) 
+        {
+            bill = (50 * 0.50) + ((unit - 50) * 0.75);
+        } 
+        else if (unit <= 250) 
+        {
+            bill = (50 * 0.50) + (100 * 0.75) + ((unit - 150) * 1.20);
+        } 
+        else 
+        {
+            bill = (50 * 0.50) + (100 * 0.75) + (100 * 1.20) + ((unit - 250) * 1.50);
+        }
+        var surcharge = bill * 0.20; 
+        var totalBill = bill + surcharge;
+
+        document.write("Units Consumed: " + unit + "<br>");
+        document.write("Electricity Bill: " + bill + "<br>");
+        document.write("Surcharge: " + surcharge + "<br>");
+        document.write("Total Bill: " + totalBill + "<br>");
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Number (Prime, Armstrong, Perfect)</title>
+</head>
+
+<body>
+    <script>
+        function checkNumber(num) {
+            console.log("Given number:", num);
+
+            if (isPrime(num)) {
+                console.log(num + " is Prime");
+            } else {
+                console.log(num + " is not Prime");
+            }
+
+            if (isArmstrong(num)) {
+                console.log(num + " is Armstrong");
+            } else {
+                console.log(num + " is not Armstrong");
+            }
+
+            if (isPerfect(num)) {
+                console.log(num + " is Perfect");
+            } else {
+                console.log(num + " is not Perfect");
+            }
+        }
+
+        // Function to check prime number
+        function isPrime(num) {
+            if (num < 2) return false;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+
+        // Function to check Armstrong number
+        function isArmstrong(num) {
+            let sum = 0;
+            let temp = num;
+            const digits = num.toString().length;
+            while (temp > 0) {
+                let r = temp % 10;
+                sum += Math.pow(r, digits);
+                temp = Math.floor(temp / 10);
+            }
+            return sum === num;
+        }
+
+        // Function to check Perfect number
+        function isPerfect(num) {
+            let sum = 0;
+            for (let i = 1; i < num; i++) {
+                if (num % i === 0) sum += i;
+            }
+            return sum === num;
+        }
+
+        checkNumber(153);
+
+    </script>
+</body>
+
+</html>

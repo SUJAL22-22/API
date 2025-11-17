@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Method Overriding example</title>
+</head>
+
+<body>
+    <script>
+        class Animal {
+            speak() {
+                console.log("Animal makes a sound.");
+            }
+        }
+
+        class Dog extends Animal {
+            speak() { // Overriding the speak method from Animal
+                console.log("Woof!");
+            }
+        }
+
+        const myDog = new Dog();
+        myDog.speak(); // Output: Woof!
+    </script>
+</body>
+
+</html>

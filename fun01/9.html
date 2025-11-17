@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of Digits Using Recursion (Notebook last question ke neeche)</title>
+</head>
+
+<body>
+    <script>
+        function sum(num) {
+            if (num == 0) {
+                return 0;
+            } 
+            return (num % 10) + sum(Math.floor(num / 10));
+        }
+
+        console.log(sumDigits(1234));
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button1</title>
+</head>
+
+<body>
+    <button onclick="ALL1()">SUJAL</button>
+    <h1 id="abc">sum</h1>
+    <h1 id="ab">sub</h1>
+    <h1 id="bc">mul</h1>
+    <h1 id="ac">div</h1>
+
+    <script>
+        var a, b;
+        function ALL1() {
+            a = Number(prompt("enter the value of a"))
+            b = Number(prompt("enter the value of b"))
+            sum()
+            sub()
+            mul()
+            div()
+        }
+
+        function sum(){
+            sum=a+b;
+            document.getElementById("abc").innerHTML="sum="+sum
+        }
+
+           function sub(){
+            sub=a-b;
+            document.getElementById("ab").innerHTML="sub="+sub
+        }
+
+           function mul(){
+            mul=a*b;
+            document.getElementById("bc").innerHTML="mul="+mul
+        }
+
+           function div(){
+            div=a/b;
+            document.getElementById("ac").innerHTML="div="+div
+        }
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Products</title>
+</head>
+<body>
+    <script>
+        let product=[
+
+            {
+                Id:1,
+                Name:"Iphone 16",
+                img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0X3oauvotZXrhyDU2dORxg1JsEpNzheyZkw&s",
+                Price:"79,999"
+            },
+
+            {
+                Id:2,
+                Name:"Iphone 17 pro",
+                img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThussNtyip2hzuXRY1weMfl_zZxoJejVRJTQ&s",
+                Price:"1,46,999"
+            },
+            {
+                Id:3,
+                Name:"Iphone 15",
+                img:"https://m.media-amazon.com/images/I/71d7rfSl0wL.jpg",
+                Price:"65,999"
+            },
+
+            {
+                Id:4,
+                Name:"Iphone 16 pro max",
+                img:"https://inspireonline.in/cdn/shop/files/iPhone_16_Pro_Desert_Titanium_PDP_Image_Position_1__en-IN_ff26d245-e29b-4ec3-9758-f292311e8e5c.jpg?v=1727250112",
+                Price:"1,34,999"
+            },
+
+            {
+                Id:5,
+                Name:"Samsung S25 Ultra",
+                img:"https://rukminim2.flixcart.com/image/480/640/xif0q/mobile/q/p/q/-original-imahg3khrwudy6kg.jpeg?q=90",
+                Price:"1,43,999"
+            },
+
+            {
+                Id:6,
+                Name:"Samsung S24 Ultra",
+                img:"https://m.media-amazon.com/images/I/717Q2swzhBL._UF894,1000_QL80_.jpg",
+                Price:"1,29,999"
+            },
+
+            {
+                Id:7,
+                Name:"Samsung S23 Ultra",
+                img:"https://www.designinfo.in/wp-content/uploads/2023/10/Samsung-Galaxy-S23-Ultra-256GB-Unlocked-Cream-1.webp",
+                Price:"1,10,999"
+            },
+
+            {
+                Id:8,
+                Name:"I Watch",
+                img:"https://rukminim2.flixcart.com/image/480/640/xif0q/smartwatch/c/e/u/-original-imah4jndazb3hcb3.jpeg?q=90",
+                Price:"89,999"
+            },
+
+            {
+                Id:9,
+                Name:" Samsung Galaxy watch 7",
+                img:"https://m.media-amazon.com/images/I/71d7quY-KxL._UF1000,1000_QL80_.jpg",
+                Price:"79,999"
+            },
+
+             {
+                Id:10,
+                Name:" Samsung Galaxy watch 7",
+                img:"https://m.media-amazon.com/images/I/71d7quY-KxL._UF1000,1000_QL80_.jpg",
+                Price:"79,999"
+            },
+
+             {
+                Id:11,
+                Name:" Samsung Galaxy watch 7",
+                img:"https://m.media-amazon.com/images/I/71d7quY-KxL._UF1000,1000_QL80_.jpg",
+                Price:"79,999"
+            },
+
+             {
+                Id:12,
+                Name:" Samsung Galaxy watch 7",
+                img:"https://m.media-amazon.com/images/I/71d7quY-KxL._UF1000,1000_QL80_.jpg",
+                Price:"79,999"
+            },
+        ];
+
+      product.map((el,i) =>{
+        let a=document.createElement("div");
+        a.style.padding="15px";
+        a.style.margin="15px";
+        a.style.width="250px";
+        a.style.display="inline-block";
+        a.style.textAlign="center";
+        a.style.fontFamily="Arial, sans-serif";
+        a.style.background="#f9f9f9";
+
+        let img=document.createElement("img")
+        img.src=el.img
+        img.style.width="200px"
+        img.style.height="200px"
+
+        var Name=document.createElement("h3")
+        Name.innerHTML=el.Name
+        Name.style.color="navy"
+        Name.style.fontSize="18px"
+
+        var Price=document.createElement("h5")
+        Price.innerHTML="₹ " + el.Price
+        Price.style.color="green"
+        Price.style.fontSize="16px"
+
+        a.append(img,Name,Price)
+
+        document.querySelector("body").append(a)
+      })
+    </script>
+</body>
+</html>

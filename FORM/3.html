@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+        <form>
+            <fieldset>
+                <legend align="center">
+                    <h1>Student Registration From</h1>
+                </legend>
+                <label>Student Name:</label>
+                <input type="text" id="StudentName"><br><br>
+
+                <label>Father's Name:</label>
+                <input type="text" id="FatherName"><br><br>
+
+                <label>Mother's Name :</label>
+                <input type="text" id="MotherName"><br><br>
+
+                <label>Email:</label>
+                <input type="email" id="Email"><br><br>
+
+                <button>submit</button>
+
+            </fieldset>
+
+
+        </form>
+    </center>
+    <script>
+
+        document.querySelector("form").addEventListener("submit"), (a) => {
+            e.preventdefault()
+            var StudentName = document.getElementById("StudentName").value.trim()
+            var FatherName = document.getElementById("FatherName").value.trim()
+            var MotherName = document.getElementById("MotherName").value.trim()
+            var email = document.getElementById("email").value.trim()
+        }
+
+
+        if (StudentName == " ") {
+            error.textContent = "studentName must be filled"
+            return
+        }
+
+        if (FatherName == " ") {
+            error.textContent = "fatherName must be filled"
+            return
+        }
+
+        if (MotherName == " ") {
+            error.textContent = "MotherName must be filled"
+            return
+        }
+
+        let regEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!regEX.test(email)) {
+            error.testContent = "Email must be filled"
+            return
+        }
+
+
+        return error.textContent = "Form submit"
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Slider</title>
+</head>
+
+<body>
+
+    <h1 id="Title"></h1>
+    <img id="image" width="1000" height="500">
+    <p id="dese"></p>
+
+    <script>
+        const sliderData = {
+            index: 0,
+            items: {
+                0: {
+                    Title: "First",
+                    img: "https://cdn.magicdecor.in/com/2024/07/16181758/Braveheart-Horizon-Indian-Army-Wallpaper-Mural-710x448.jpg",
+                    dese: "This is First image"
+                },
+                1: {
+                    Title: "Second",
+                    img: "https://img.jagranjosh.com/images/2022/April/142022/List-of-armed-forces-of-India.jpg",
+                    dese: "This is Second image"
+                },
+                2: {
+                    Title: "Three",
+                    img: "https://media.licdn.com/dms/image/v2/D4D12AQERyXSdhtrWQQ/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1657188081910?e=2147483647&v=beta&t=CO1TUXdYK1V2T_qFLS0HX7A572ghvscANNTHoM7Cass",
+                    dese: "This is Third image"
+                }
+            }
+        };
+
+        function show() {
+            const item = sliderData.items[sliderData.index];
+            document.getElementById("Title").innerHTML = item.Title;
+            document.getElementById("image").src = item.img;
+            document.getElementById("dese").innerText = item.dese;
+        }
+
+        function Next() {
+            sliderData.index = (sliderData.index + 1) % Object.keys(sliderData.items).length;
+            show();
+        }
+
+        show();
+
+        setInterval(Next, 3000);
+
+    </script>
+
+</body>
+
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+</head>
+
+<body>
+    <h2 id="title"></h2>
+    <img id="image" width="700" height="500">
+    <p id="desc"></p>
+
+    <script>
+        const sliderData = {
+            index: 0,
+            item: {
+                0: {
+                    title: "First",
+                    image: "https://static.vecteezy.com/system/resources/thumbnails/023/056/329/small_2x/programmer-people-working-laptops-or-smartphones-with-ai-artificial-intelligence-software-engineer-coding-on-laptop-computers-with-technology-icons-and-binary-code-big-data-ai-bot-digital-machine-photo.jpg"
+                },
+                1: {
+                    title: "Second",
+                    image: "https://i0.wp.com/www.toonsmag.com/wp-content/uploads/2025/01/arinorway_Classic_Cartoons_Explained_Why_They_Still_Matter_Toda_c332acc7-7e93-48df-b83d-aaa0416e79bf.png"
+                },
+                2: {
+                    title: "Third",
+                    image: "https://thumbs.dreamstime.com/b/minnie-mouse-love-character-vector-clipart-minnie-mouse-face-head-portrait-clipart-disney-cartoon-character-vector-png-drawing-387464430.jpg"
+                }
+            }
+        };
+
+        function show() {
+            const item = sliderData.item[sliderData.index];
+            document.getElementById("title").innerText = item.title;
+            document.getElementById("image").src = item.image;
+        }
+
+        show();
+
+        setInterval(() => {
+            sliderData.index++;
+            if (sliderData.index > 2) {
+                sliderData.index = 0;
+            }
+            show();
+        }, 2000);
+    </script>
+</body>
+
+</html>

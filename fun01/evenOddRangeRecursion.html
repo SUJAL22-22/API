@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function printEven(start, end) {
+            if (start > end) return;
+            if (start % 2 === 0) console.log(start);
+            printEven(start + 1, end);
+        }
+        function printOdd(start, end) {
+            if (start > end) return;
+            if (start % 2 !== 0) console.log(start);
+            printOdd(start + 1, end);
+        }
+        printEven(1, 20);
+        printOdd(1, 20);
+
+    </script>
+</body>
+
+</html>

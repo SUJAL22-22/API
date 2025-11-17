@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+</head>
+
+<body>
+    <center>
+        <form>
+            <fieldset>
+                <legend align="center">
+                    <h1>Student Registration From</h1>
+                </legend>
+                <label>Student Name:</label>
+                <input type="text" id="studentname" required><br><br>
+
+                <label>Father's Name:</label>
+                <input type="text" id="fathername" required><br><br>
+
+                <label>Mother's Name :</label>
+                <input type="text" id="mothername" required><br><br>
+
+                <label>Email:</label>
+                <input type="email" id="email" required><br><br>
+
+                <label>Phone Number:</label>
+                <input type="number" id="number" required><br><br>
+
+                <label>Date of Birth:</label>
+                <input type="date" id="dob" required><br><br>
+
+
+                <label>Gender:</label>
+                <input type="radio" name="Gender">Male
+                <input type="radio" name="Gender">Female<br><br>
+
+                <label>Cours:
+                    <input type="checkbox" name="Cours">C
+                    <input type="checkbox" name="Cours">C++
+                    <input type="checkbox" name="Cours">Java
+                    <input type="checkbox" name="Cours">Ai
+                    <input type="checkbox" name="Cours">Html
+                </label><br><br>
+
+                <button>submit</button>
+
+            </fieldset>
+
+
+        </form>
+    </center>
+    <script>
+        document.querySelector("form").addEventListener("submit", (a) => e.preventdefault())
+        var StudentName = document.getElementById("Student Name").value.trim()
+        var FatherName = document.getElementById("Father Name").value.trim()
+        var MotherName = document.getElementById("MotherName").value.trim()
+        var email = document.getElementById("email").value.trim()
+        var PhoneNumbe = document.getElementById("Phone Numbe").value.trim()
+        var DateofBirth = document.getElementById("DateofBirth").value.trim()
+        var Gender = document.getElementById("Gender").value.trim()
+        var Cours = document.getElementById("Cours").value.trim()
+
+        console.log(StudentName)
+        console.log(FatherName)
+        console.log(MotherName)
+        console.log(email)
+        console.log(PhoneNumbe)
+        console.log(DateofBirth)
+        console.log(Gender)
+        console.log(Cours)
+
+    </script>
+
+</body>
+
+</html>

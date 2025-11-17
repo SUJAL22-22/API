@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>palindrome</title>
+</head>
+
+<body>
+    <script>
+        var n, rev = 0;
+        n = Number(prompt("enter the value of n"));
+        p = n;
+        while (n > 0) {
+            rem = n % 10;
+            rev = rev * 10 + rem;
+            n = Math.floor(n / 10);
+        }
+        if (p == rev) {
+            document.write("this is paradron")
+        } 
+        else {
+            document.write("this is not paradron")
+        }
+    </script>
+</body>
+
+</html>
