@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+let arr = [12, -5, 7, -9, 0, -15, 20, -1];
+
+function countNegativeElements(array) {
+    let count = 0;
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] < 0) {
+            count++;
+        }
+    }
+
+    console.log("Total number of negative elements:", count);
+}
+
+console.log(arr);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+</head>
+
+<body>
+    <center>
+        <form>
+            <fieldset>
+                <legend align="center">
+                    <h1>Student Registration From</h1>
+                </legend>
+
+                <label>Name:</label>
+                <input type="name" id="name"><br><br>
+
+                <label>Email:</label>
+                <input type="email" id="email"><br><br>
+
+                <label>Password:</label>
+                <input type="password" id="password"><br><br>
+
+                <button>submit</button>
+
+            </fieldset>
+
+        </form>
+    </center>
+    <script>
+
+        document.querySelector("form").addEventListener("submit"), (a) => {
+            e.preventdefault()
+
+            var name = document.getElementById("name").value.trim()
+            var email = document.getElementById("email").value.trim()
+            var password = document.getElementById("password").value.trim()
+
+            console.log(name)
+            console.log(email)
+            console.log(password)
+
+            if (name == " ") {
+                error.textContent = "name must be filled"
+                return
+            }
+
+            let regEx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!regEx.test(email)) {
+                error.testContent = "Email must be filled"
+                return
+            }
+            if (password.length <= 6) {
+                console.log(password.length)
+                error.textContent = "password atleast 6 char"
+                return
+            }
+            return error.textContent = "Form submit"
+        }
+
+    </script>
+
+</body>
+
+</html>

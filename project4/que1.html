@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sum of even and odd using recurion</title>
+</head>
+
+<body>
+    <script>
+        function sum(n, p, even = 0, odd = 0) {
+            if (n > p) {
+                return { even, odd };
+            }
+            else {
+                if (n % 2 == 0) {
+                    even += n
+                }
+                else {
+                    odd += n;
+                }
+            }
+            return sum(n + 1, p, even, odd);
+        }
+        let n = Number(prompt("Enter starting number"));
+        let p = Number(prompt("Enter endling number"));
+        let answer = sum(n, p);
+
+        document.write("Sum OF even digit is : " + answer.even);
+        document.write("<br>Sum OF odd digit is : " + answer.odd);
+    </script>
+</body>
+
+</html>

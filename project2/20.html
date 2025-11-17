@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>que20</title>
+</head>
+
+<body>
+    <script>
+        var salary = Number(prompt("Enter the salary: "));
+        var HRA, DA, grossSalary;
+
+        if (salary <= 10000) {
+            HRA = salary * 20 / 100;
+            DA = salary * 80 / 100;
+        }
+        else if (salary <= 20000) {
+            HRA = salary * 25 / 100;
+            DA = salary * 90 / 100;
+        }
+        else {
+            HRA = salary * 30 / 100;
+            DA = salary * 95 / 100;
+        }
+
+        var grossSalary = salary + HRA + DA;
+        document.write("HRA : " + HRA + "<br>");
+        document.write("DA : " + DA + "<br>");
+        document.write("Gross Salary : " + grossSalary + "<br>");
+    </script>
+</body>
+
+</html>
